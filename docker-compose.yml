@@ -12,6 +12,7 @@ services:
       - "8080:8080"
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
+      - ./letsencrypt:/letsencrypt
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
     networks:

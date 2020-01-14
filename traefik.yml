@@ -5,7 +5,6 @@ entryPoints:
     address: ":443"
 
 api:
-  insecure: true
   dashboard: true
   debug: true
 
@@ -13,7 +12,9 @@ providers:
   docker:
     exposedByDefault: false
     network: traefik_network
-
+  file:
+    filename: /etc/traefik/dynamic_conf.yml
+  
 accesslog: true
 
 certificatesresolvers:
@@ -28,6 +29,3 @@ certificatesresolvers:
       tlschallenge: true
       email: ml@brl.ru
       storage: /letsencrypt/acme.json
-
-log:
-  level: debug

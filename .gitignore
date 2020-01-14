@@ -6,3 +6,6 @@ gen
 
 # Let's encrypt certs files
 acme.json
+
+# passwords
+.htpasswd

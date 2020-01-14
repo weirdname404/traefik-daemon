@@ -10,6 +10,8 @@ services:
       - "80:80"
       # The HTTPS port
       - "443:443"
+      # The Web UI (enabled by --api.insecure=true)
+      - "8080:8080"
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
       - ./dynamic_conf.yml:/etc/traefik/dynamic_conf.yml

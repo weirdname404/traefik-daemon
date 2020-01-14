@@ -21,13 +21,13 @@ certificatesresolvers:
     acme:
       httpchallenge:
         entrypoint: http
-      caserver: https://acme-staging-v02.api.letsencrypt.org/directory
+#      caserver: https://acme-staging-v02.api.letsencrypt.org/directory
       email: ml@brl.ru
       storage: /letsencrypt/acme.json
   tlschallege_0:
     acme:
       tlschallenge: true
-      caserver: https://acme-staging-v02.api.letsencrypt.org/directory
+#      caserver: https://acme-staging-v02.api.letsencrypt.org/directory
       email: ml@brl.ru
       storage: /letsencrypt/acme.json
 

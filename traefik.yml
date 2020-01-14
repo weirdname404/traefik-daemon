@@ -1,0 +1,17 @@
+entryPoints:
+  http:
+    address: ":80"
+  https:
+    address: ":443"
+
+api:
+  insecure: true
+  dashboard: true
+  debug: true
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: traefik_network
+
+accesslog: true

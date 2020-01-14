@@ -29,3 +29,5 @@ certificatesresolvers:
       email: ml@brl.ru
       storage: /letsencrypt/acme.json
 
+log:
+  level: debug

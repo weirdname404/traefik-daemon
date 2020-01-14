@@ -1,0 +1,12 @@
+# Dynamic Configuration
+http:
+    routers:
+      api:
+        rule: Host("traefik.localhost")
+        service: api@internal
+        middlewares:
+          - auth
+    middlewares:
+      auth:
+        basicAuth:
+            usersFile: "/etc/traefik/.htpasswd"

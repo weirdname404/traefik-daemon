@@ -19,6 +19,7 @@ services:
       - ./letsencrypt:/letsencrypt
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
     networks:
       - traefik_network
 

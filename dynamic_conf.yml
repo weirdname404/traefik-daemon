@@ -1,12 +1,27 @@
 # Dynamic Configuration
 http:
     routers:
-      api:
+      api-http:
         rule: Host("traefik.localhost")
         service: api@internal
+        entryPoints:
+          - "http"
         middlewares:
-          - auth
+          - redirect_middleware
+      api-https:
+        rule: Host("traefik.localhost")
+        service: api@internal
+        entryPoints:
+          - "https"
+        tls:
+          certresolver: httpchallenge_0
+        middlewares:
+          - dashboard_auth_middleware
+
     middlewares:
-      auth:
+      dashboard_auth_middleware:
         basicAuth:
-            usersFile: "/etc/traefik/.htpasswd"
+          usersFile: "/etc/traefik/.htpasswd"
+      redirect_middleware:
+        redirectScheme:
+          scheme: https

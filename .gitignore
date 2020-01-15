@@ -9,3 +9,6 @@ acme.json
 
 # passwords
 .htpasswd
+
+# env
+.env

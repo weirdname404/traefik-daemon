@@ -2,14 +2,14 @@
 http:
   routers:
     api-http:
-      rule: Host("$TRAEFIK_DASHBOARD_HOST")
+      rule: Host("traefik.localhost")
       service: api@internal
       entryPoints:
         - "http"
       middlewares:
         - redirect_middleware
     api-https:
-      rule: Host("$TRAEFIK_DASHBOARD_HOST")
+      rule: Host("traefik.localhost")
       service: api@internal
       entryPoints:
         - "https"

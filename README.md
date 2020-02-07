@@ -1,4 +1,4 @@
-# brl-traefik
+# base traefik daemon
 
 **Before starting up Traefik service, make sure that you have `.htpasswd` file.**
 

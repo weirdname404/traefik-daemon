@@ -1,7 +1,13 @@
 # base traefik daemon
 
-**Before starting up Traefik service, make sure that you have `.htpasswd` file.**
+**Before starting up Traefik service, make sure that:**
+- file `you_need.env` is renamed to `.env` and all ENV variables are correctly set
 
+**There are two possible environments:**
+- dev
+- prod
+
+### For PRODuction environment don't forget to set `.htpasswd` file.
 Add passwords file:
 
 `htpasswd -cb .htpasswd login pass`
@@ -12,7 +18,9 @@ Update passwords file:
 
 ### Example
 
-Treafik settings in `docker-compose.yml` of your new service with https support and redirect mechanism will look something like this:
+You are willing to run your cool service behind Traefik daemon. In order to connect your service to Traefik network and set up some routing rules you have to add some labels to your service's `docker-compose.yml`.
+
+Example below shows `docker-compose.yml` of [whoami service](https://hub.docker.com/r/containous/whoami) with https support and redirect mechanism.
 
 ```
 version: '3'

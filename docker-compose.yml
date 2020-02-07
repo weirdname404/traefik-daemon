@@ -12,7 +12,7 @@ services:
       - "443:443"
     volumes:
       - ./traefik.yml:/etc/traefik/traefik.yml
-      - ./$APP_ENV/dynamic_conf.yml:/etc/traefik/dynamic_conf.yml
+      - ./$ENV/dynamic_conf.yml:/etc/traefik/dynamic_conf.yml
       - ./.htpasswd:/etc/traefik/.htpasswd
       - ./letsencrypt:/letsencrypt
       # So that Traefik can listen to the Docker events

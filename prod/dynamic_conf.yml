@@ -1,0 +1,27 @@
+# Dynamic Configuration
+http:
+  routers:
+    api-http:
+      rule: Host("$TRAEFIK_DASHBOARD_HOST")
+      service: api@internal
+      entryPoints:
+        - "http"
+      middlewares:
+        - redirect_middleware
+    api-https:
+      rule: Host("$TRAEFIK_DASHBOARD_HOST")
+      service: api@internal
+      entryPoints:
+        - "https"
+      tls:
+        certresolver: httpchallenge_0
+      middlewares:
+        - dashboard_auth_middleware
+
+  middlewares:
+    dashboard_auth_middleware:
+      basicAuth:
+        usersFile: "/etc/traefik/.htpasswd"
+    redirect_middleware:
+      redirectScheme:
+        scheme: https

@@ -1,10 +1,15 @@
 # base traefik daemon
 
-**Before starting up Traefik service, make sure that:**
-- file `you_need.env` is renamed to `.env` and all ENV variables are correctly set
+You can read more about Traefik [here](https://docs.traefik.io/). This repo contains minimum configured Traefik for fast project deploys.
+
+### Before Start
+**Make sure that:**
+- port 80 is free
+- you have `.env` file and all ENV variables are correctly set (check `you_need.env` as an example)
+- you have docker network named as `traefik_network`. Use command `docker network create traefik_network` to create one.
 
 **There are two possible environments:**
-- dev
+- dev (dashboard is without a password, no ssl, no https redirect)
 - prod
 
 ### For PRODuction environment don't forget to set `.htpasswd` file.
@@ -15,6 +20,9 @@ Add passwords file:
 Update passwords file:
 
 `htpasswd -b .htpasswd login pass`
+
+### Start
+Starting Traefik in a background is pretty straight forward: `docker-compose up -d`
 
 ### Example
 
